@@ -1,6 +1,8 @@
 # Voicet
 
-Ultrafast, Ultra efficient Real-time (live) speech-to-text on your GPU. No cloud, no Python, no API keys. Words appear as you speak them inside your app of choice, hotkey optional.
+![Demo.gif](C:\Users\Jon\Working1_without_debugging\Demo.gif)
+
+Ultrafast, ultra efficient Real-time (live) speech-to-text on your GPU. No cloud, no Python, no API keys. Words appear as you speak them inside your app of choice, hotkey optional.
 
 Support for RTX 3000 series and up (>11gb VRAM); DGX Spark [untested]. Windows/Linux
 
@@ -11,8 +13,6 @@ I found it to be slightly faster then speechmatics (probably because it's local)
 Result: <3s cold load time, only 51w power consumption on an RTX 5080. 
 
 Automatic paragraph breaks on speech pauses (configurable)
-
-
 
 ## Features
 
@@ -25,8 +25,6 @@ Automatic paragraph breaks via silence detection (configurable)
 Offline transcription mode with enhanced accuracy of wav files
 
 Hotkey mode in case you want to pause the model while not in use, keeps model preloaded and primed on GPU
-
-
 
 ## Why Rust instead of Python?
 
@@ -57,7 +55,7 @@ Other features: Resumable requests. Processes audio pipeline in parallel with gp
 ### Prerequisites
 
 - NVIDIA GPU with CUDA support (tested on RTX 5080)
-- LINUX ONLY: [CUDA Toolkit](https://developer.nvidia.com/cuda-toolkit) installed
+- [CUDA Toolkit](https://developer.nvidia.com/cuda-toolkit) installed (Linux only - included for Windows release)
 - Model weights: download [Voxtral-Mini-4B-Realtime](https://huggingface.co/mistralai/Voxtral-Mini-4B-Realtime) into a the voicet.exe directory. You only need consolidated.safetensors and tekken.json
 
 ### Build
