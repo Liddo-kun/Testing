@@ -1,6 +1,6 @@
 # Voicet
 
-![Demo.gif](C:\Users\Jon\Working1_without_debugging\Demo.gif)
+![Demo](Demo.gif)
 
 Ultrafast, ultra efficient Real-time (live) speech-to-text on your GPU. No cloud, no Python, no API keys. Words appear as you speak them inside your app of choice, hotkey optional.
 
@@ -8,7 +8,7 @@ Support for RTX 3000 series and up (>11gb VRAM); DGX Spark [untested]. Windows/L
 
 I found it to be slightly faster then speechmatics (probably because it's local) and just as accurate.
 
-[Voxtral Mini 4B Realtime]([mistralai/Voxtral-Mini-4B-Realtime-2602 · Hugging Face](https://huggingface.co/mistralai/Voxtral-Mini-4B-Realtime-2602)) is a relativley large model for speech to text, but in return it gets you insanely low latency and high accuracy. So I built this app on top of it to optimize the best I could.
+[Voxtral Mini 4B Realtime](https://huggingface.co/mistralai/Voxtral-Mini-4B-Realtime-2602) is a relatively large model for speech to text, but in return it gets you insanely low latency and high accuracy. So I built this app on top of it to optimize the best I could.
 
 Result: <3s cold load time, only 51w power consumption on an RTX 5080. 
 
@@ -108,10 +108,10 @@ See [ARCHITECTURE.md](ARCHITECTURE.md) for full details.
 
 | CLI flag              | Default   | Effect                                                                        |
 | --------------------- | --------- | ----------------------------------------------------------------------------- |
-| `--delay`             | 3 (240ms) | Accuracy vs latency. Higher = more lookahead. Auto-set to 20 in offline mode. |
-| `--silence-threshold` | 0.007     | RMS energy below which audio counts as silence.                               |
-| `--silence-flush`     | delay+9   | Consecutive silent chunks before paragraph break.                             |
-| `--min-speech`        | 8 (640ms) | Minimum speech duration before silence detection activates.                   |
+| `--delay`             | 4 (320ms) | Accuracy vs latency. Higher = more lookahead. Auto-set to 20 in offline mode. |
+| `--silence-threshold` | 0.006     | RMS energy below which audio counts as silence.                               |
+| `--silence-flush`     | delay+14  | Consecutive silent chunks before paragraph break.                             |
+| `--min-speech`        | 12 (960ms)| Minimum speech duration before silence detection activates.                   |
 | `--rms-ema`           | 0.3       | EMA smoothing factor for speech detection.                                    |
 | `--hotkey`            | none      | Global hotkey to toggle recording (F1-F12, ScrollLock, Pause).                |
 | `--type`              | off       | Type transcribed words directly into the focused app.                         |
